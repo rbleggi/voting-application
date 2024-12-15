@@ -1,0 +1,47 @@
+server:
+  port: 8080
+
+spring:
+
+  application:
+    name: api-votes
+
+  jackson:
+    default-property-inclusion: non_null
+
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/test
+    username: root
+    password: root
+
+  flyway:
+    enabled: true
+    url: jdbc:postgresql://localhost:5432/test
+    user: root
+    password: root
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+kafka:
+  provider: API
+  user-created:
+    topic: VOTES_RESULT
+    event-type: VOTE_RESULT
+    payload-version: 1.0
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui
+
+api:
+  client:
+    cpf:
+      v1:
+        host: http://localhost:8081/v1
+        validate: /cpf/{cpf}/validate

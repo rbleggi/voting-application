@@ -180,7 +180,7 @@ sequenceDiagram
 
 1. Clone o repositório.
    ```bash
-   git clone https://github.com/your-repo/voting-app.git
+   git clone https://github.com/rbleggi/voting-appplication.git
    cd voting-app
    ```
 2. Inicie os serviços de infraestrutura usando o arquivo `docker-compose.yml` fornecido.
